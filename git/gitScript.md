@@ -200,6 +200,8 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 
 如果你实在担心有人冒充GitHub服务器，输入`yes`前可以对照[GitHub的RSA Key的指纹信息](https://help.github.com/articles/what-are-github-s-ssh-key-fingerprints/)是否与SSH连接给出的一致。
 
+`SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA) 
+
 ###远程库克隆
 
 用命令`git clone`克隆一个本地库 
