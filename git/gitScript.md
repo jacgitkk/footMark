@@ -24,7 +24,7 @@ $ git init
 
 ##更新提交
 
-用命令`git add`告诉Git，把文件添加到仓库 
+用命令`git add`告诉Git，把文件添加到仓库缓存 
 
 ```
 $ git add readme.txt（目标文件名）
@@ -447,7 +447,9 @@ If you wish to set tracking information for this branch you can do so with:
     git branch --set-upstream-to=origin/<branch> dev
 ```
 
-如果`git pull`提示`no tracking information`，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream-to <branch-name> origin/<branch-name>`。
+如果`git pull`提示`no tracking information`，则说明本地分支和远程分支的链接关系没有创建，git 是有 tracking 的概念的，所谓 tracking 就是把【来源】和【目标】绑定在一起。
+
+用命令`git branch --set-upstream-to <branch-name> origin/<branch-name>`可以建立链接关系，以实现更新操作的映射跟踪。
 
 ```
 $ git branch --set-upstream-to=origin/dev dev
@@ -458,6 +460,14 @@ $ git commit -m "fix env conflict"
 
 $ git push origin dev
 ```
+
+1. 如果推送时使用`git push -u origin master`，那么这条命令所在的分支就已经 tracking to origin/master 了，`-u` 的用处就在这里 。
+
+2. git的tracking状态，通过`cat .git/config`，可以查询到，注意红色方框标示的地方 （上半部分是 tracking 的，下半部分是 untracking 的） 
+
+   ![1528805246864](C:\Users\Jack\AppData\Local\Temp\1528805246864.png)
+
+本质上`git pull` = `git fetch` + `merge to local` ，tracking 的本质就是指明 pull 的 merge 动作来源。 
 
 ##基线管控
 
